@@ -1,28 +1,22 @@
 import './App.css';
 import HomePage from './page/HomePage';
-import React, { useReducer } from 'react';
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'LENGTH': {
-      return action.data;
-    }
-    case 'VOLUME': {
-      return action.data;
-    }
-    case 'MASS': {
-      return action.data;
-    }
-    default: {
-      return state;
-    }
-  }
-}
+import React, { useReducer, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import LengthCalculator from './page/LengthCalculator';
+import MassCalculator from './page/MassCalculator';
+import VolumeCalculator from './page/VolumeCalculator';
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, []);
-
-  return <div></div>;
+  return (
+    <div className='App'>
+      <Routes>
+        <Route path='/HomePage' element={<HomePage />} />
+        <Route path='/LengthCalculator' element={<LengthCalculator />} />
+        <Route path='/MassCalculator' element={<MassCalculator />} />
+        <Route path='/VolumeCalculator' element={<VolumeCalculator />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
