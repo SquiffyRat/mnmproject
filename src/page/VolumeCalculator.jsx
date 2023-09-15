@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../component/Header';
+import ButtonBar from '../component/ButtonBar';
 
+// dry good과 fluid 차이는 여건이 되면 description 작성, 기준 단위는 mL(cc)~L
 function VolumeCalculator() {
   const navigate = useNavigate();
   const goHome = () => {
@@ -22,13 +25,19 @@ function VolumeCalculator() {
   };
 
   return (
-    <div>
-      <select value={option} id='volumeOption' onChange={handleOnChange}>
-        <option key={'dryPint'}>dryPint</option>
-        <option key={'dryQuart'}>dryQuart</option>
-        <option key={'pint'}>pint</option>
-        <option key={'gallon'}>gallon</option>
-      </select>
+    <div className='VolumeConverter'>
+      <section>
+        <Header />
+        <ButtonBar />
+      </section>
+      <section>
+        <select value={option} id='volumeOption' onChange={handleOnChange}>
+          <option key={'dryPint'}>dryPint</option>
+          <option key={'dryQuart'}>dryQuart</option>
+          <option key={'pint'}>pint</option>
+          <option key={'gallon'}>gallon</option>
+        </select>
+      </section>
     </div>
   );
 }
