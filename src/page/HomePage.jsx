@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../component/header';
+
 import { useNavigate } from 'react-router-dom';
-import Button from '../component/button';
+import Button from '../component/Button';
+import Header from '../component/Header';
 
 function HomePage() {
   document.title = '단위 변환';
