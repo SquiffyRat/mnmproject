@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import './Button.css';
 
-function Button({ title, onClick }) {
-  return <button onClick={onClick}>{title}</button>;
+function Button({ title, onClick, disabled }) {
+  return (
+    <div className='btn_wrap'>
+      <section className='wrapper'>
+        <button className='buttonC' onClick={onClick} disabled={disabled}>
+          {title}
+        </button>
+      </section>
+    </div>
+  );
 }
 
 // function Accordian() {

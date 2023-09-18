@@ -9,20 +9,6 @@ function HomePage() {
   document.title = '단위 변환';
   const homeTitle = '단위 변환';
 
-  const navigate = useNavigate();
-  const goHome = () => {
-    navigate('/HomePage');
-  };
-  const goLength = () => {
-    navigate('/LengthPage');
-  };
-  const goMass = () => {
-    navigate('/MassPage');
-  };
-  const goVolume = () => {
-    navigate('/VolumePage');
-  };
-
   const [input, setInput] = useState('');
   // const [preview, setPreview] = useState("");
   const [result, setResult] = useState('');

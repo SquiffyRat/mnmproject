@@ -82,10 +82,7 @@ function LengthPage() {
           onChange={handleOutputLength}
         />
       </section>
-      <section>
-        {result}
-        {lengthOptionOut.id}
-      </section>
+      <section>{result}</section>
     </div>
   );
 }

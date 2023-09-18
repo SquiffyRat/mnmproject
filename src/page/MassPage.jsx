@@ -78,10 +78,7 @@ function MassPage() {
           onChange={handleOutputMass}
         />
       </section>
-      <section>
-        {result}
-        {massOptionOut.id}
-      </section>
+      <section>{result}</section>
     </div>
   );
 }
