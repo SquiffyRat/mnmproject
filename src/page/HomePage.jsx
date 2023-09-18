@@ -14,13 +14,13 @@ function HomePage() {
     navigate('/HomePage');
   };
   const goLength = () => {
-    navigate('/LengthCalculator');
+    navigate('/LengthPage');
   };
   const goMass = () => {
-    navigate('/MassCalculator');
+    navigate('/MassPage');
   };
   const goVolume = () => {
-    navigate('/VolumeCalculator');
+    navigate('/VolumePage');
   };
 
   const [input, setInput] = useState('');
