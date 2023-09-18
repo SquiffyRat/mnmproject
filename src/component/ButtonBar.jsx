@@ -6,16 +6,16 @@ import './ButtonBar.css';
 function ButtonBar() {
   const navigate = useNavigate();
   const goHome = () => {
-    navigate('/HomePage');
+    navigate('/');
   };
   const goLength = () => {
-    navigate('/LengthCalculator');
+    navigate('/LengthPage');
   };
   const goMass = () => {
-    navigate('/MassCalculator');
+    navigate('/MassPage');
   };
   const goVolume = () => {
-    navigate('/VolumeCalculator');
+    navigate('/VolumePage');
   };
 
   return (

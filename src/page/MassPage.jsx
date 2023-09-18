@@ -1,24 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../component/Header';
 import ButtonBar from '../component/ButtonBar';
-import MassSelector from '../component/MassSelector';
+import UnitSelector from '../component/UnitSelector';
 
 // gram~ton 단위 추가하기
 function MassPage() {
-  const navigate = useNavigate();
-  const goHome = () => {
-    navigate('/HomePage');
+  const [inputNum, setInputNum] = useState('');
+  const [inputMass, setInputMass] = useState('');
+  const [outputMass, setOutputMass] = useState('');
+  const [result, setResult] = useState('');
+
+  useEffect(() => {
+    if (inputNum !== '' && inputMass !== '' && outputMass !== '') {
+      const parsedInputNum = parseFloat(inputNum);
+      const parsedInputMass = parseFloat(inputMass);
+      const parsedOutputMass = parseFloat(outputMass);
+
+      setResult((parsedInputNum * parsedInputMass) / parsedOutputMass);
+    } else {
+      setResult('');
+    }
+  }, [inputNum, inputMass, outputMass]);
+
+  const handleInputNum = (e) => {
+    setInputNum(e.target.value);
   };
-  const goLength = () => {
-    navigate('/LengthPage');
+  const handleInputMass = (e) => {
+    setInputMass(e.target.value);
   };
-  const goMass = () => {
-    navigate('/MassPage');
+  const handleOutputMass = (e) => {
+    setOutputMass(e.target.value);
   };
-  const goVolume = () => {
-    navigate('/VolumePage');
-  };
+
+  const massOptionIn = [
+    { id: 'gram', label: '그램', value: 1.0 },
+    { id: 'kilogram', label: '킬로그램', value: 1000.0 },
+    { id: 'ton', label: '톤', value: 1000000.0 },
+    { id: 'ounce', label: '온스', value: 28.35 },
+    { id: 'pound', label: '파운드', value: 453.6 },
+    { id: 'longton', label: '롱톤', value: 1016046.9088 },
+    { id: 'shortton', label: '숏톤', value: 917184.74 },
+  ];
+  const massOptionOut = [
+    { id: 'gram', label: '그램', value: 1.0 },
+    { id: 'kilogram', label: '킬로그램', value: 1000.0 },
+    { id: 'ton', label: '톤', value: 1000000.0 },
+    { id: 'ounce', label: '온스', value: 28.35 },
+    { id: 'pound', label: '파운드', value: 453.6 },
+    { id: 'longton', label: '롱톤', value: 1016046.9088 },
+    { id: 'shortton', label: '숏톤', value: 917184.74 },
+  ];
 
   return (
     <div className='MassConverter'>
@@ -27,8 +59,28 @@ function MassPage() {
         <ButtonBar />
       </section>
       <section>
-        <MassSelector />
-        <MassSelector />
+        <input
+          type='number'
+          placeholder='숫자를 입력하십시오'
+          value={inputNum}
+          onChange={handleInputNum}
+        />
+      </section>
+      <section>
+        <UnitSelector
+          units={massOptionIn}
+          value={inputMass}
+          onChange={handleInputMass}
+        />
+        <UnitSelector
+          units={massOptionOut}
+          value={outputMass}
+          onChange={handleOutputMass}
+        />
+      </section>
+      <section>
+        {result}
+        {massOptionOut.id}
       </section>
     </div>
   );
