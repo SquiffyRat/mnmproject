@@ -25,7 +25,7 @@ function ButtonBar() {
   };
 
   return (
-    <div>
+    <div className='buttonBar'>
       <Button
         title={'Home'}
         onClick={goHome}

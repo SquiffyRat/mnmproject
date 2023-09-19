@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../component/Header';
 import ButtonBar from '../component/ButtonBar';
 import UnitSelector from '../component/UnitSelector';
+import InputNum from '../component/InputNum';
 
 // dry good과 fluid 차이는 여건이 되면 description 작성, 기준 단위는 mL(cc)~L
 function VolumePage() {
@@ -57,12 +58,7 @@ function VolumePage() {
         <ButtonBar />
       </section>
       <section>
-        <input
-          type='number'
-          placeholder='숫자를 입력하십시오'
-          value={inputNum}
-          onChange={handleInputNum}
-        />
+        <InputNum value={inputNum} onChange={handleInputNum} />
       </section>
       <section>
         <UnitSelector

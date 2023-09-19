@@ -1,4 +1,4 @@
-import { axios } from 'axios';
+import { Axios } from 'axios';
 import React, { useState, useEffect } from 'react';
 import Header from '../component/Header';
 import ButtonBar from '../component/ButtonBar';
@@ -10,11 +10,11 @@ function ExchangePage() {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const url =
-        'https://v6.exchangerate-api.com/v6/d7ef0d38ab4ea241b7cdb789/latest/KRW';
+      const conversion_rates =
+        'https://v6.exchangerate-api.com/v6/d7ef0d38ab4ea241b7cdb789/pair/KRW/USD';
 
       try {
-        const response = await axios.get(url);
+        const response = await Axios.get(conversion_rates);
         setconversion_rates(response.data.conversion_rates);
       } catch (error) {
         console.log(error);
@@ -23,17 +23,16 @@ function ExchangePage() {
     };
     fetchData();
   }, []);
-
+  console.log(conversion_rates);
   if (loading) {
     return <div>불러오는 중입니다.</div>;
   }
   if (!conversion_rates) {
-    return null;
+    return <div>정보를 불러올 수 없습니다.</div>;
   }
 
   return (
-    <div>
-      ExchangePage
+    <div className='Exchange'>
       <Header />
       <ButtonBar />
     </div>

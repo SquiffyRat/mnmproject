@@ -1,0 +1,11 @@
+.buttonBar {
+  background-color: rebeccapurple;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 30px;
+  background: rgb(223, 223, 223, 0.5);
+  backdrop-filter: blur(10px);
+}

@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../component/Header';
 import ButtonBar from '../component/ButtonBar';
 import UnitSelector from '../component/UnitSelector';
+import InputNum from '../component/InputNum';
 
 // mm~Km 단위도 추가하기
 function LengthPage() {
-  const lengthTitle = '길이 변환';
+  const lengthTitle = '';
 
   const [inputNum, setInputNum] = useState('');
   const [inputLength, setInputLength] = useState('');
@@ -59,16 +60,14 @@ function LengthPage() {
   return (
     <div className='LengthConverter'>
       <section>
-        <Header title={lengthTitle} summary={'길이 변환 설명'} />
+        <Header
+          title={lengthTitle}
+          summary={'미터법, 혹은 피트와 마일과 같은 도량형 간의 단위 변환'}
+        />
         <ButtonBar />
       </section>
       <section>
-        <input
-          type='number'
-          placeholder='숫자를 입력하십시오'
-          value={inputNum}
-          onChange={handleInputNum}
-        />
+        <InputNum value={inputNum} onChange={handleInputNum} />
       </section>
       <section>
         <UnitSelector
