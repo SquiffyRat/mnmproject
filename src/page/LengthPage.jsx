@@ -112,7 +112,7 @@ function LengthPage() {
           />
         </section>
         <section>
-          <OutputNum getResult={result} reUnit={outUnit} />
+          <OutputNum getResult={result} outUnit={outUnit} />
         </section>
       </div>
     </div>

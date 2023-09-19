@@ -2,12 +2,13 @@ import React from 'react';
 import './OutputNum.css';
 
 function OutputNum(re) {
-  const { getResult, reUnit } = re;
+  const { getResult, outUnit } = re;
 
   return (
-    <section className='outputNum' getResult={getResult} reUnit={reUnit}>
+    <section className='outputNum' getResult={getResult} outUnit={outUnit}>
       <p>
-        {getResult},{reUnit}입니다.
+        {getResult}
+        {outUnit}입니다.
       </p>
     </section>
   );

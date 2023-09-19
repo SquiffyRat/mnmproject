@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Header from '../component/Header';
 import ButtonBar from '../component/ButtonBar';
+import UnitSelector from '../component/UnitSelector';
 
 function ExchangePage() {
   const [responseData, setresponseData] = useState(null);
@@ -11,7 +12,7 @@ function ExchangePage() {
     setLoading(true);
     const fetchData = async () => {
       const responseData =
-        'https://v6.exchangerate-api.com/v6/d7ef0d38ab4ea241b7cdb789/pair/USD/KRW';
+        'https://v6.exchangerate-api.com/v6/d7ef0d38ab4ea241b7cdb789/pair/KRW/KRW';
 
       try {
         const response = await Axios.get(responseData);
@@ -38,7 +39,10 @@ function ExchangePage() {
         <Header />
         <ButtonBar />
       </section>
-      <section>{responseData.conversion_rate}</section>
+      <section className='converterBottom'>
+        <UnitSelector />
+        {responseData.conversion_rate}
+      </section>
     </div>
   );
 }

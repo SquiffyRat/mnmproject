@@ -12,6 +12,7 @@ function VolumePage() {
   const [inputVolume, setInputVolume] = useState('');
   const [outputVolume, setOutputVolume] = useState('');
   const [result, setResult] = useState('');
+  const [inUnit, setInUnit] = useState('');
   const [outUnit, setOutUnit] = useState('');
 
   useEffect(() => {
@@ -29,8 +30,17 @@ function VolumePage() {
   const handleInputNum = (e) => {
     setInputNum(e.target.value);
   };
-  const handleInputVolume = (e) => {
+  const handleSetInputVolume = (e) => {
     setInputVolume(e.target.value);
+  };
+
+  const handleInputUnit = (e) => {
+    setInUnit(e.target.options[e.target.options.selectedIndex].innerText);
+  };
+
+  const handleInputVolume = (e) => {
+    handleSetInputVolume(e);
+    handleInputUnit(e);
   };
 
   const handleSetOutputVolume = (e) => {
@@ -38,7 +48,7 @@ function VolumePage() {
   };
 
   const handleOutputUnit = (e) => {
-    setOutUnit(e.target.label);
+    setOutUnit(e.target.options[e.target.options.selectedIndex].innerText);
   };
   const handleOutputVolume = (e) => {
     handleSetOutputVolume(e);
@@ -69,7 +79,7 @@ function VolumePage() {
         <ButtonBar />
       </section>
       <section>
-        <InputNum value={inputNum} onChange={handleInputNum} />
+        <InputNum value={inputNum} onChange={handleInputNum} inUnit={inUnit} />
       </section>
       <section>
         <UnitSelector
@@ -84,7 +94,7 @@ function VolumePage() {
         />
       </section>
       <section>
-        <OutputNum getRusult={result} reUnit={outUnit} />
+        <OutputNum getRusult={result} outUnit={outUnit} />
       </section>
     </div>
   );

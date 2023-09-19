@@ -4,6 +4,7 @@ import Header from '../component/Header';
 import ButtonBar from '../component/ButtonBar';
 import UnitSelector from '../component/UnitSelector';
 import InputNum from '../component/InputNum';
+import OutputNum from '../component/OutputNum';
 
 // gram~ton 단위 추가하기
 function MassPage() {
@@ -11,6 +12,8 @@ function MassPage() {
   const [inputMass, setInputMass] = useState('');
   const [outputMass, setOutputMass] = useState('');
   const [result, setResult] = useState('');
+  const [inUnit, setInUnit] = useState('');
+  const [outUnit, setOutUnit] = useState('');
 
   useEffect(() => {
     if (inputNum !== '' && inputMass !== '' && outputMass !== '') {
@@ -27,11 +30,29 @@ function MassPage() {
   const handleInputNum = (e) => {
     setInputNum(e.target.value);
   };
-  const handleInputMass = (e) => {
+  const handleSetInputMass = (e) => {
     setInputMass(e.target.value);
   };
-  const handleOutputMass = (e) => {
+
+  const handleInputUnit = (e) => {
+    setInUnit(e.target.options[e.target.options.selectedIndex].innerText);
+  };
+
+  const handleInputMass = (e) => {
+    handleSetInputMass(e);
+    handleInputUnit(e);
+  };
+
+  const handleSetOutputMass = (e) => {
     setOutputMass(e.target.value);
+  };
+
+  const handleOutputUnit = (e) => {
+    setOutUnit(e.target.options[e.target.options.selectedIndex].innerText);
+  };
+  const handleOutputMass = (e) => {
+    handleSetOutputMass(e);
+    handleOutputUnit(e);
   };
 
   const massOptionIn = [
@@ -60,7 +81,7 @@ function MassPage() {
         <ButtonBar />
       </section>
       <section>
-        <InputNum value={inputNum} onChange={handleInputNum} />
+        <InputNum value={inputNum} onChange={handleInputNum} inUnit={inUnit} />
       </section>
       <section>
         <UnitSelector
@@ -74,7 +95,9 @@ function MassPage() {
           onChange={handleOutputMass}
         />
       </section>
-      <section>{result}</section>
+      <section>
+        <OutputNum getResult={result} outUnit={outUnit} />
+      </section>
     </div>
   );
 }
