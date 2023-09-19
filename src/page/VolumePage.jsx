@@ -9,11 +9,11 @@ import OutputNum from '../component/OutputNum';
 // dry good과 fluid 차이는 여건이 되면 description 작성, 기준 단위는 mL(cc)~L
 function VolumePage() {
   const [inputNum, setInputNum] = useState('');
-  const [inputVolume, setInputVolume] = useState('');
-  const [outputVolume, setOutputVolume] = useState('');
+  const [inputVolume, setInputVolume] = useState(1.0);
+  const [outputVolume, setOutputVolume] = useState(1.0);
   const [result, setResult] = useState('');
-  const [inUnit, setInUnit] = useState('');
-  const [outUnit, setOutUnit] = useState('');
+  const [inUnit, setInUnit] = useState('밀리리터');
+  const [outUnit, setOutUnit] = useState('밀리리터');
 
   useEffect(() => {
     if (inputNum !== '' && inputVolume !== '' && outputVolume !== '') {
@@ -94,7 +94,7 @@ function VolumePage() {
         />
       </section>
       <section>
-        <OutputNum getRusult={result} outUnit={outUnit} />
+        <OutputNum getResult={result} outUnit={outUnit} />
       </section>
     </div>
   );

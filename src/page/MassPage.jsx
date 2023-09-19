@@ -9,11 +9,11 @@ import OutputNum from '../component/OutputNum';
 // gram~ton 단위 추가하기
 function MassPage() {
   const [inputNum, setInputNum] = useState('');
-  const [inputMass, setInputMass] = useState('');
-  const [outputMass, setOutputMass] = useState('');
+  const [inputMass, setInputMass] = useState(1.0);
+  const [outputMass, setOutputMass] = useState(1.0);
   const [result, setResult] = useState('');
-  const [inUnit, setInUnit] = useState('');
-  const [outUnit, setOutUnit] = useState('');
+  const [inUnit, setInUnit] = useState('그램');
+  const [outUnit, setOutUnit] = useState('그램');
 
   useEffect(() => {
     if (inputNum !== '' && inputMass !== '' && outputMass !== '') {
