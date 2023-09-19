@@ -11,6 +11,7 @@ function VolumePage() {
   const [inputVolume, setInputVolume] = useState('');
   const [outputVolume, setOutputVolume] = useState('');
   const [result, setResult] = useState('');
+  const [outUnit, setOutUnit] = useState('');
 
   useEffect(() => {
     if (inputNum !== '' && inputVolume !== '' && outputVolume !== '') {
@@ -31,7 +32,7 @@ function VolumePage() {
     setInputVolume(e.target.value);
   };
   const handleOutputVolume = (e) => {
-    setOutputVolume(e.target.value);
+    setOutputVolume(e.target.value) && setOutUnit(e.target.label);
   };
 
   const volumeOptionIn = [
@@ -52,8 +53,8 @@ function VolumePage() {
   ];
 
   return (
-    <div className='VolumeConverter'>
-      <section>
+    <div className='converter'>
+      <section className='converterTop'>
         <Header />
         <ButtonBar />
       </section>
@@ -74,7 +75,7 @@ function VolumePage() {
       </section>
       <section>
         {result}
-        {volumeOptionOut.id}
+        {outUnit}
       </section>
     </div>
   );

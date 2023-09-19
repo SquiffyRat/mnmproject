@@ -54,8 +54,8 @@ function MassPage() {
   ];
 
   return (
-    <div className='MassConverter'>
-      <section>
+    <div className='converter'>
+      <section className='converterTop'>
         <Header />
         <ButtonBar />
       </section>

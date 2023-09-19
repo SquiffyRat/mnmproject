@@ -58,11 +58,11 @@ function LengthPage() {
   ];
 
   return (
-    <div className='LengthConverter'>
-      <section>
+    <div className='converter'>
+      <section className='converterTop'>
         <Header
           title={lengthTitle}
-          summary={'미터법, 혹은 피트와 마일과 같은 도량형 간의 단위 변환'}
+          summary={'미터법 간의, 혹은 피트와 마일과 같은 도량형 간의 단위 변환'}
         />
         <ButtonBar />
       </section>
@@ -81,7 +81,10 @@ function LengthPage() {
           onChange={handleOutputLength}
         />
       </section>
-      <section>{result}</section>
+      <section>
+        {result}
+        {}
+      </section>
     </div>
   );
 }
