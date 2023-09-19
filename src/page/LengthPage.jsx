@@ -4,6 +4,8 @@ import Header from '../component/Header';
 import ButtonBar from '../component/ButtonBar';
 import UnitSelector from '../component/UnitSelector';
 import InputNum from '../component/InputNum';
+import OutputNum from '../component/OutputNum';
+import '../component/Page.css';
 
 // mm~Km 단위도 추가하기
 function LengthPage() {
@@ -13,6 +15,8 @@ function LengthPage() {
   const [inputLength, setInputLength] = useState('');
   const [outputLength, setOutputLength] = useState('');
   const [result, setResult] = useState('');
+  const [inUnit, setInUnit] = useState('');
+  const [outUnit, setOutUnit] = useState('');
 
   useEffect(() => {
     if (inputNum !== '' && inputLength !== '' && outputLength !== '') {
@@ -29,11 +33,30 @@ function LengthPage() {
   const handleInputNum = (e) => {
     setInputNum(e.target.value);
   };
-  const handleInputLength = (e) => {
+
+  const handleSetInputLength = (e) => {
     setInputLength(e.target.value);
   };
-  const handleOutputLength = (e) => {
+
+  const handleInputUnit = (e) => {
+    setInUnit(e.target.options[e.target.options.selectedIndex].innerText);
+  };
+
+  const handleInputLength = (e) => {
+    handleSetInputLength(e);
+    handleInputUnit(e);
+  };
+
+  const handleSetOutputLength = (e) => {
     setOutputLength(e.target.value);
+  };
+
+  const handleOutputUnit = (e) => {
+    setOutUnit(e.target.options[e.target.options.selectedIndex].innerText);
+  };
+  const handleOutputLength = (e) => {
+    handleSetOutputLength(e);
+    handleOutputUnit(e);
   };
 
   const lengthOptionIn = [
@@ -66,25 +89,32 @@ function LengthPage() {
         />
         <ButtonBar />
       </section>
-      <section>
-        <InputNum value={inputNum} onChange={handleInputNum} />
-      </section>
-      <section>
-        <UnitSelector
-          units={lengthOptionIn}
-          value={inputLength}
-          onChange={handleInputLength}
-        />
-        <UnitSelector
-          units={lengthOptionOut}
-          value={outputLength}
-          onChange={handleOutputLength}
-        />
-      </section>
-      <section>
-        {result}
-        {}
-      </section>
+      <div className='converterBottom'>
+        <section>
+          <InputNum
+            value={inputNum}
+            onChange={handleInputNum}
+            inUnit={inUnit}
+          />
+        </section>
+        <section>
+          <UnitSelector
+            className='inputUnitSelector'
+            units={lengthOptionIn}
+            value={inputLength}
+            onChange={handleInputLength}
+          />
+          <UnitSelector
+            className='outputUnitSelector'
+            units={lengthOptionOut}
+            value={outputLength}
+            onChange={handleOutputLength}
+          />
+        </section>
+        <section>
+          <OutputNum getResult={result} reUnit={outUnit} />
+        </section>
+      </div>
     </div>
   );
 }

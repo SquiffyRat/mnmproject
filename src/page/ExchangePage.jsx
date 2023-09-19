@@ -11,7 +11,7 @@ function ExchangePage() {
     setLoading(true);
     const fetchData = async () => {
       const responseData =
-        'https://v6.exchangerate-api.com/v6/d7ef0d38ab4ea241b7cdb789/pair/KRW/USD';
+        'https://v6.exchangerate-api.com/v6/d7ef0d38ab4ea241b7cdb789/pair/USD/KRW';
 
       try {
         const response = await Axios.get(responseData);
@@ -38,7 +38,7 @@ function ExchangePage() {
         <Header />
         <ButtonBar />
       </section>
-      {responseData.conversion_rate}
+      <section>{responseData.conversion_rate}</section>
     </div>
   );
 }

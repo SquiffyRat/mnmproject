@@ -7,7 +7,7 @@ function UnitSelector(props) {
   return (
     <select className='selectC' value={value} onChange={onChange}>
       {units.map((option) => (
-        <option key={option.value} value={option.value} label={option.label}>
+        <option key={option.value} value={option.value}>
           {option.label}
         </option>
       ))}

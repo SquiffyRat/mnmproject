@@ -4,6 +4,7 @@ import Header from '../component/Header';
 import ButtonBar from '../component/ButtonBar';
 import UnitSelector from '../component/UnitSelector';
 import InputNum from '../component/InputNum';
+import OutputNum from '../component/OutputNum';
 
 // dry good과 fluid 차이는 여건이 되면 description 작성, 기준 단위는 mL(cc)~L
 function VolumePage() {
@@ -31,8 +32,17 @@ function VolumePage() {
   const handleInputVolume = (e) => {
     setInputVolume(e.target.value);
   };
+
+  const handleSetOutputVolume = (e) => {
+    setOutputVolume(e.target.value);
+  };
+
+  const handleOutputUnit = (e) => {
+    setOutUnit(e.target.label);
+  };
   const handleOutputVolume = (e) => {
-    setOutputVolume(e.target.value) && setOutUnit(e.target.label);
+    handleSetOutputVolume(e);
+    handleOutputUnit(e);
   };
 
   const volumeOptionIn = [
@@ -74,8 +84,7 @@ function VolumePage() {
         />
       </section>
       <section>
-        {result}
-        {outUnit}
+        <OutputNum getRusult={result} reUnit={outUnit} />
       </section>
     </div>
   );

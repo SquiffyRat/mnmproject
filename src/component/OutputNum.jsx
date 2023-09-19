@@ -5,10 +5,9 @@ function OutputNum(re) {
   const { getResult, reUnit } = re;
 
   return (
-    <section className='outputNum'>
+    <section className='outputNum' getResult={getResult} reUnit={reUnit}>
       <p>
-        {getResult}
-        {reUnit}입니다.
+        {getResult},{reUnit}입니다.
       </p>
     </section>
   );
