@@ -8,6 +8,23 @@ import OutputNum from '../component/OutputNum';
 
 // dry good과 fluid 차이는 여건이 되면 description 작성, 기준 단위는 mL(cc)~L
 function VolumePage() {
+  const volumeOptionIn = [
+    { id: 'milliliter', label: '밀리리터', value: 1.0 },
+    { id: 'liter', label: '리터', value: 1000.0 },
+    { id: 'uspint', label: '갤런', value: 473.2 },
+    { id: 'usgallon', label: '파인트', value: 3785.412 },
+    { id: 'imppint', label: '제국파인트', value: 568.3 },
+    { id: 'impgallon', label: '제국갤런', value: 4546.09 },
+  ];
+  const volumeOptionOut = [
+    { id: 'milliliter', label: '밀리리터', value: 1.0 },
+    { id: 'liter', label: '리터', value: 1000.0 },
+    { id: 'uspint', label: '갤런', value: 473.2 },
+    { id: 'usgallon', label: '파인트', value: 3785.412 },
+    { id: 'imppint', label: '제국파인트', value: 568.3 },
+    { id: 'impgallon', label: '제국갤런', value: 4546.09 },
+  ];
+
   const [inputNum, setInputNum] = useState('');
   const [inputVolume, setInputVolume] = useState(1.0);
   const [outputVolume, setOutputVolume] = useState(1.0);
@@ -54,23 +71,6 @@ function VolumePage() {
     handleSetOutputVolume(e);
     handleOutputUnit(e);
   };
-
-  const volumeOptionIn = [
-    { id: 'milliliter', label: '밀리리터', value: 1.0 },
-    { id: 'liter', label: '리터', value: 1000.0 },
-    { id: 'uspint', label: '갤런', value: 473.2 },
-    { id: 'usgallon', label: '파인트', value: 3785.412 },
-    { id: 'imppint', label: '제국파인트', value: 568.3 },
-    { id: 'impgallon', label: '제국갤런', value: 4546.09 },
-  ];
-  const volumeOptionOut = [
-    { id: 'milliliter', label: '밀리리터', value: 1.0 },
-    { id: 'liter', label: '리터', value: 1000.0 },
-    { id: 'uspint', label: '갤런', value: 473.2 },
-    { id: 'usgallon', label: '파인트', value: 3785.412 },
-    { id: 'imppint', label: '제국파인트', value: 568.3 },
-    { id: 'impgallon', label: '제국갤런', value: 4546.09 },
-  ];
 
   return (
     <div className='converter'>

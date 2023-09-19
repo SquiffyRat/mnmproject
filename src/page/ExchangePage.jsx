@@ -107,7 +107,7 @@ function ExchangePage() {
           value={outputCountry}
           onChange={handleOutputCountry}
         />
-        <OutputNum />
+        <OutputNum getResult={result} outUnit={outUnit} />
         {/* {responseData.conversion_rate} */}
       </section>
     </div>

@@ -8,6 +8,25 @@ import OutputNum from '../component/OutputNum';
 
 // gram~ton 단위 추가하기
 function MassPage() {
+  const massOptionIn = [
+    { id: 'gram', label: '그램', value: 1.0 },
+    { id: 'kilogram', label: '킬로그램', value: 1000.0 },
+    { id: 'ton', label: '톤', value: 1000000.0 },
+    { id: 'ounce', label: '온스', value: 28.35 },
+    { id: 'pound', label: '파운드', value: 453.6 },
+    { id: 'longton', label: '롱톤', value: 1016046.9088 },
+    { id: 'shortton', label: '숏톤', value: 917184.74 },
+  ];
+  const massOptionOut = [
+    { id: 'gram', label: '그램', value: 1.0 },
+    { id: 'kilogram', label: '킬로그램', value: 1000.0 },
+    { id: 'ton', label: '톤', value: 1000000.0 },
+    { id: 'ounce', label: '온스', value: 28.35 },
+    { id: 'pound', label: '파운드', value: 453.6 },
+    { id: 'longton', label: '롱톤', value: 1016046.9088 },
+    { id: 'shortton', label: '숏톤', value: 917184.74 },
+  ];
+
   const [inputNum, setInputNum] = useState('');
   const [inputMass, setInputMass] = useState(1.0);
   const [outputMass, setOutputMass] = useState(1.0);
@@ -54,25 +73,6 @@ function MassPage() {
     handleSetOutputMass(e);
     handleOutputUnit(e);
   };
-
-  const massOptionIn = [
-    { id: 'gram', label: '그램', value: 1.0 },
-    { id: 'kilogram', label: '킬로그램', value: 1000.0 },
-    { id: 'ton', label: '톤', value: 1000000.0 },
-    { id: 'ounce', label: '온스', value: 28.35 },
-    { id: 'pound', label: '파운드', value: 453.6 },
-    { id: 'longton', label: '롱톤', value: 1016046.9088 },
-    { id: 'shortton', label: '숏톤', value: 917184.74 },
-  ];
-  const massOptionOut = [
-    { id: 'gram', label: '그램', value: 1.0 },
-    { id: 'kilogram', label: '킬로그램', value: 1000.0 },
-    { id: 'ton', label: '톤', value: 1000000.0 },
-    { id: 'ounce', label: '온스', value: 28.35 },
-    { id: 'pound', label: '파운드', value: 453.6 },
-    { id: 'longton', label: '롱톤', value: 1016046.9088 },
-    { id: 'shortton', label: '숏톤', value: 917184.74 },
-  ];
 
   return (
     <div className='converter'>
