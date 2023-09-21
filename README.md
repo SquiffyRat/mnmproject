@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+### `프로젝트 주제`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+단위 변환 기능
 
-## Available Scripts
+### `프로젝트 목표`
 
-In the project directory, you can run:
+- [간단한 변환기]는
+    - 단위변환을 하거나
+    - 낯선 도량형이 정확히 어느정도 되는지 알고자 하거나
+    - 현재 환전을 하면 일정 금액으로 얼마나 환전이 되는지 알고자하는
+        - 모든 사람들을 위한 앱입니다.
+            - 빠르고 정확하게, 그리고 실시간으로 환율을 알 수 있게 해주는 것이 목표입니다.
+            - 단위변환도 원하는 단위를 바로 볼 수 있도록 구성할 예정입니다.
 
-### `npm start`
+### `프로젝트 구성원`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+이상엽
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `프로젝트 구현 기능 목표`
 
-### `npm test`
+1. 간단한 단위변환 (kilo, mega, centi, milli …)
+2. 서로 다른 도량형 간의 변환 (야드 파운드법, 파인트 …)
+3. 현재 환율을 반영해서 환전 가능한 금액이 얼마인지 계산해주는 변환기
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `기능 구현 화면`
 
-### `npm run build`
+헤더와 navbar
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6a727cb1-c8b1-44da-acd2-ac9acbb148d7/6070346b-954c-4486-842d-21795b095bd6/Untitled.png)
+변환 화면
+![convert1.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/6a727cb1-c8b1-44da-acd2-ac9acbb148d7/645e7285-0860-456f-a2d3-bc0749ce2cc6/convert1.gif)
+환전 화면
+![convert3.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/6a727cb1-c8b1-44da-acd2-ac9acbb148d7/f95ea3eb-2964-4f07-9d07-bbfbbf3964a0/convert3.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 프로젝트 중 어려웠던 문제
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. 프로젝트 중 어려웠던 점 (문제점을 구체적으로 제시)
+    - 페이지와 컴포넌트 구성을 설계하는 과정
+    - 몇몇 익숙치 않은 문법과 이해하지 못한 기능을 추가해야 했던 점
+2. 프로젝트 중 발생한 문제들
+    - 위 사항들로 인해 직관적이지 않은 이름 설정들과
+    - 미처 해결하지 못한 불편한 점들
+3. CSS 디자인 과정
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 문제를 해결한 방안
 
-### `npm run eject`
+1. 프로젝트 중 어려웠던 점을 이러하게 해결
+    - 페이지와 컴포넌트 구성은 우선 그림과 글을 작성해 목표를 설정함
+    - 익숙하지 않은 문법과 기능들은 예시를 보면서 직접 구현해보고자 함
+2. 프로젝트 중 발생했던 문제들을 이러하게 해결
+    - section이나 컴포넌트를 분리해 초기보다 개선
+    - 불편한 점들은 점진적으로 해결해보고자 함
+3. CSS 디자인
+    - 참고할만한 사이트를 열람하거나
+    - 지속적으로 다룰수록 개선될 여지가 많으므로 시간을 두고 차근차근 수정
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 프로젝트를 하면서 깨달은 점
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 전반적인 react app의 기초를 이해함
+- 진행하면서 발생하는 문제들을 어떻게 해결할 지 생각할 수 있게 됨
+- 페이지를 구성할 때 어떻게 디자인 할 것인지 생각해 볼 수 있었던 기회
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
