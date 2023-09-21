@@ -7,7 +7,8 @@ import InputNum from '../component/InputNum';
 import OutputNum from '../component/OutputNum';
 import '../component/Page.css';
 
-// dry good과 fluid 차이는 여건이 되면 description 작성, 기준 단위는 mL(cc)~L
+// 현재 US 파인트와 갤런 점 잘못찍혀있음
+//dry good과 fluid 차이는 여건이 되면 description 작성, 기준 단위는 mL(cc)~L
 function VolumePage() {
   document.title = '단위 변환 - 부피';
   const volumeTitle = '단위 변환 - 부피';
@@ -79,30 +80,36 @@ function VolumePage() {
   return (
     <div className='converter'>
       <section className='converterTop'>
-        <Header 
+        <Header
           title={volumeTitle}
-          summary={'리터 단위와 파인트와 갤런(US, imperial) 간의 변환을 해주는 사이트입니다.'}
+          summary={
+            '리터 단위와 파인트와 갤런(US, imperial) 간의 변환을 해주는 사이트입니다.'
+          }
         />
         <ButtonBar />
       </section>
-      <section className='converterBottom'>      
+      <section className='converterBottom'>
         <section className='converterBody'>
-        <InputNum value={inputNum} onChange={handleInputNum} inUnit={inUnit} />
-        <OutputNum getResult={result} outUnit={outUnit} />
+          <InputNum
+            value={inputNum}
+            onChange={handleInputNum}
+            inUnit={inUnit}
+          />
+          <OutputNum getResult={result} outUnit={outUnit} />
         </section>
         <section className='converterSelector'>
-        <UnitSelector
-          className='inputUnitSelector'
-          units={volumeOptionIn}
-          value={inputVolume}
-          onChange={handleInputVolume}
-        />
-        <UnitSelector
-          className='outputUnitSelector'
-          units={volumeOptionOut}
-          value={outputVolume}
-          onChange={handleOutputVolume}
-        />
+          <UnitSelector
+            className='inputUnitSelector'
+            units={volumeOptionIn}
+            value={inputVolume}
+            onChange={handleInputVolume}
+          />
+          <UnitSelector
+            className='outputUnitSelector'
+            units={volumeOptionOut}
+            value={outputVolume}
+            onChange={handleOutputVolume}
+          />
         </section>
       </section>
     </div>
