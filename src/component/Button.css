@@ -13,3 +13,8 @@
 .buttonC:hover {
   background: white;
 }
+.buttonC:disabled {
+  background: rgb(57, 51, 168);
+  color:#fff;
+  border-color: beige;
+}

@@ -5,9 +5,13 @@ import ButtonBar from '../component/ButtonBar';
 import UnitSelector from '../component/UnitSelector';
 import InputNum from '../component/InputNum';
 import OutputNum from '../component/OutputNum';
+import '../component/Page.css';
 
 // dry good과 fluid 차이는 여건이 되면 description 작성, 기준 단위는 mL(cc)~L
 function VolumePage() {
+  document.title = '단위 변환 - 부피';
+  const volumeTitle = '단위 변환 - 부피';
+
   const volumeOptionIn = [
     { id: 'milliliter', label: '밀리리터', value: 1.0 },
     { id: 'liter', label: '리터', value: 1000.0 },
@@ -75,26 +79,31 @@ function VolumePage() {
   return (
     <div className='converter'>
       <section className='converterTop'>
-        <Header />
+        <Header 
+          title={volumeTitle}
+          summary={'리터 단위와 파인트와 갤런(US, imperial) 간의 변환을 해주는 사이트입니다.'}
+        />
         <ButtonBar />
       </section>
-      <section>
+      <section className='converterBottom'>      
+        <section className='converterBody'>
         <InputNum value={inputNum} onChange={handleInputNum} inUnit={inUnit} />
-      </section>
-      <section>
+        <OutputNum getResult={result} outUnit={outUnit} />
+        </section>
+        <section className='converterSelector'>
         <UnitSelector
+          className='inputUnitSelector'
           units={volumeOptionIn}
           value={inputVolume}
           onChange={handleInputVolume}
         />
         <UnitSelector
+          className='outputUnitSelector'
           units={volumeOptionOut}
           value={outputVolume}
           onChange={handleOutputVolume}
         />
-      </section>
-      <section>
-        <OutputNum getResult={result} outUnit={outUnit} />
+        </section>
       </section>
     </div>
   );

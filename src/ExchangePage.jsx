@@ -7,9 +7,6 @@ import InputNum from '../component/InputNum';
 import OutputNum from '../component/OutputNum';
 
 function ExchangePage() {
-  document.title = '단위 변환 - 환전';
-  const exchangeTitle = '단위 변환 - 환전';
-  
   const countryListIn = [
     { id: '원', label: '대한민국', value: 'KRW' },
     { id: '달러', label: '미국', value: 'USD' },
@@ -27,33 +24,27 @@ function ExchangePage() {
     { id: 'Kyat', label: '미얀마', value: 'MMK' },
   ];
 
-  const [inputNum, setInputNum] = useState(1.0);
+  const [inputNum, setInputNum] = useState(1);
   const [responseData, setresponseData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [inputCountry, setInputCountry] = useState('USD');
   const [outputCountry, setOutputCountry] = useState('KRW');
-  const [inUnit, setInUnit] = useState('미국 달러');
-  const [outUnit, setOutUnit] = useState('대한민국 원');
+  const [inUnit, setInUnit] = useState('');
+  const [outUnit, setOutUnit] = useState('');
   const [result, setResult] = useState('');
-
-
 
   const handleInputNum = (e) => {
     setInputNum(e.target.value);
     const result = e.target.value * responseData.conversion_rate;
     console.log(result);
-    setResult(result);
   };
 
   const handleSetInputCountry = (e) => {
-    const newCountry = e.target.value
-    setInputCountry(newCountry);
+    setInputCountry(e.target.value);
   };
 
   const handleInputUnit = (e) => {
-    const newUnit = e.target.options[e.target.options.selectedIndex].id;
-    const newLabel = e.target.options[e.target.options.selectedIndex].innerText;
-    setInUnit(newLabel + " " + newUnit);
+    setInUnit(e.target.id);
   };
 
   const handleInputCountry = (e) => {
@@ -62,14 +53,11 @@ function ExchangePage() {
   };
 
   const handleSetOutputCountry = (e) => {
-    const toCountry = e.target.value
-    setOutputCountry(toCountry);
+    setOutputCountry(e.target.value);
   };
 
   const handleOutputUnit = (e) => {
-    const toUnit = e.target.options[e.target.options.selectedIndex].id;
-    const toLabel = e.target.options[e.target.options.selectedIndex].innerText;
-    setOutUnit(toLabel + " " + toUnit);
+    setOutUnit(e.target.id);
   };
 
   const handleOutputCountry = (e) => {
@@ -87,6 +75,7 @@ function ExchangePage() {
 
       try {
         const response = await Axios.get(url);
+        console.log(response.data);
         setresponseData(response.data);
       } catch (error) {
         console.log(error);
@@ -95,7 +84,7 @@ function ExchangePage() {
     };
     fetchData();
   }, [inputCountry, outputCountry]);
-
+  console.log('상태값', responseData);
   if (loading) {
     return <div>불러오는 중입니다.</div>;
   }
@@ -103,31 +92,23 @@ function ExchangePage() {
   return (
     <div className='converter'>
       <section className='converterTop'>
-        <Header 
-          title={exchangeTitle}
-          summary={'영미 단위계를 사용하는 국가들과, 대한민국의 통화간의 환율을 보여주는 사이트입니다.'}
-        />
+        <Header />
         <ButtonBar />
       </section>
       <section className='converterBottom'>
-        <section className='converterBody'>
-        <InputNum value={inputNum} onChange={handleInputNum} inUnit={inUnit} />
-        <OutputNum getResult={result} outUnit={outUnit} />
-        </section>
-        <section className='converterSelector'>
+        <InputNum input={inputNum} onChange={handleInputNum} inUnit={inUnit} />
         <UnitSelector
-          className='inputUnitSelector'
           units={countryListIn}
           value={inputCountry}
           onChange={handleInputCountry}
         />
         <UnitSelector
-          className='outputUnitSelector'
           units={countryListOut}
           value={outputCountry}
           onChange={handleOutputCountry}
         />
-        </section>
+        <OutputNum getResult={result} outUnit={outUnit} />
+        {/* {responseData.conversion_rate} */}
       </section>
     </div>
   );

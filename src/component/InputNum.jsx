@@ -9,11 +9,11 @@ function InputNum(inputs) {
       <input
         className='inputC'
         type='number'
-        placeholder='숫자를 입력하십시오'
+        placeholder='변환할 값(숫자)'
         value={value}
         onChange={onChange}
       />
-      <p>{inUnit}은(는)</p>
+      <p className='inputPhrase'>{value} {inUnit}은(는)</p>
     </section>
   );
 }

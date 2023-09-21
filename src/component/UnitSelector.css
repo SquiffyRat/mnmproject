@@ -1,0 +1,19 @@
+.selectC {
+    border-radius: 5px;
+    background-color: beige;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+.selectC:hover {
+    border-color: skyblue;
+}
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+select::-ms-expand {
+    display: none;
+}

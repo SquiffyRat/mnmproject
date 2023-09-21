@@ -1,9 +1,35 @@
-/* .converter .converterBottom {
+.converter {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
 
+.converter .converterBottom {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(
     180deg,
     rgb(57, 51, 168) 0%,
     rgb(130, 130, 197) 31%,
     rgb(210, 243, 248) 100%
   );
-} */
+}
+.converter .converterTop {
+  width: 100%;
+  background-color: rgb(57, 51, 168);
+}
+.converter .converterBottom .converterSelector {
+  grid-template-columns: 1em 1em 1em 1em 1em 1em;
+  grid-template-rows: auto;
+}
+.converter .converterBottom .converterSelector .inputUnitSelector {
+  grid-column: 2/6;
+}
+.converter .converterBottom .converterSelector .outputUnitSelector {
+  grid-column: 4/6;
+}

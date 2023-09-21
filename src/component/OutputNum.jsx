@@ -6,9 +6,8 @@ function OutputNum(re) {
 
   return (
     <section className='outputNum' getResult={getResult} outUnit={outUnit}>
-      <p>
-        {getResult}
-        {outUnit}입니다.
+      <p className='outputPhrase'> 
+        {getResult} {outUnit}입니다.
       </p>
     </section>
   );

@@ -1,0 +1,14 @@
+output {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+    width: 300px;
+    font-size: 18px;
+    height: 24px;
+  }
+  .outputNum .outputPhrase {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 200;
+  }

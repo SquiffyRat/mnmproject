@@ -5,9 +5,13 @@ import ButtonBar from '../component/ButtonBar';
 import UnitSelector from '../component/UnitSelector';
 import InputNum from '../component/InputNum';
 import OutputNum from '../component/OutputNum';
+import '../component/Page.css';
 
 // gram~ton 단위 추가하기
 function MassPage() {
+  document.title = '단위 변환 - 질량';
+  const massTitle = '단위 변환 - 질량';
+
   const massOptionIn = [
     { id: 'gram', label: '그램', value: 1.0 },
     { id: 'kilogram', label: '킬로그램', value: 1000.0 },
@@ -77,27 +81,33 @@ function MassPage() {
   return (
     <div className='converter'>
       <section className='converterTop'>
-        <Header />
+        <Header 
+          title = {massTitle}
+          summary= {'그램 단위와 톤, 영미 단위계에서 쓰이는 이름이 다른 톤 등을 변환하는 사이트입니다.'}
+        />
         <ButtonBar />
       </section>
-      <section>
-        <InputNum value={inputNum} onChange={handleInputNum} inUnit={inUnit} />
-      </section>
-      <section>
+      <section className='converterBottom'>
+        <section className='converterBody'>
+          <InputNum value={inputNum} onChange={handleInputNum} inUnit={inUnit} />
+          <OutputNum getResult={result} outUnit={outUnit} />
+        </section>
+        <section className='converterSelector'>
         <UnitSelector
+          className='inputUnitSelector'
           units={massOptionIn}
           value={inputMass}
           onChange={handleInputMass}
         />
         <UnitSelector
+          className='outputUnitSelector'
           units={massOptionOut}
           value={outputMass}
           onChange={handleOutputMass}
         />
+        </section>
       </section>
-      <section>
-        <OutputNum getResult={result} outUnit={outUnit} />
-      </section>
+
     </div>
   );
 }

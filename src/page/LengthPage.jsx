@@ -9,7 +9,8 @@ import '../component/Page.css';
 
 // mm~Km 단위도 추가하기
 function LengthPage() {
-  const lengthTitle = '';
+  document.title = '단위 변환 - 길이';
+  const lengthTitle = '단위 변환 - 길이';
 
   const lengthOptionIn = [
     { id: 'millimeter', label: '밀리미터', value: 1.0 },
@@ -31,6 +32,7 @@ function LengthPage() {
     { id: 'yard', label: '야드', value: 914.4 },
     { id: 'mile', label: '마일', value: 1609300.0 },
   ];
+
 
   const [inputNum, setInputNum] = useState('');
   const [inputLength, setInputLength] = useState(1.0);
@@ -85,19 +87,20 @@ function LengthPage() {
       <section className='converterTop'>
         <Header
           title={lengthTitle}
-          summary={'미터법 간의, 혹은 피트와 마일과 같은 도량형 간의 단위 변환'}
+          summary={'미터 단위와 인치, 피트, 마일과 같은 단위를 변환하는 사이트입니다.'}
         />
         <ButtonBar />
       </section>
-      <div className='converterBottom'>
-        <section>
+      <section className='converterBottom'>
+        <section className='converterBody'>
           <InputNum
             value={inputNum}
             onChange={handleInputNum}
             inUnit={inUnit}
           />
+          <OutputNum getResult={result} outUnit={outUnit} />
         </section>
-        <section>
+        <section className='converterSelector'>
           <UnitSelector
             className='inputUnitSelector'
             units={lengthOptionIn}
@@ -111,10 +114,8 @@ function LengthPage() {
             onChange={handleOutputLength}
           />
         </section>
-        <section>
-          <OutputNum getResult={result} outUnit={outUnit} />
-        </section>
-      </div>
+        
+      </section>
     </div>
   );
 }
