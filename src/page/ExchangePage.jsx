@@ -29,8 +29,8 @@ function ExchangePage() {
   const [loading, setLoading] = useState(false);
   const [inputCountry, setInputCountry] = useState('USD');
   const [outputCountry, setOutputCountry] = useState('KRW');
-  const [inUnit, setInUnit] = useState('');
-  const [outUnit, setOutUnit] = useState('');
+  const [inUnit, setInUnit] = useState('미국 달러');
+  const [outUnit, setOutUnit] = useState('대한민국 원');
   const [result, setResult] = useState('');
 
   const handleInputNum = (e) => {
@@ -44,7 +44,7 @@ function ExchangePage() {
   };
 
   const handleInputUnit = (e) => {
-    setInUnit(e.target.id);
+    setInUnit(e.target.options[e.target.options.selectedIndex].innerText);
   };
 
   const handleInputCountry = (e) => {
@@ -57,7 +57,7 @@ function ExchangePage() {
   };
 
   const handleOutputUnit = (e) => {
-    setOutUnit(e.target.id);
+    setOutUnit(e.target.options[e.target.options.selectedIndex].innerText);
   };
 
   const handleOutputCountry = (e) => {
